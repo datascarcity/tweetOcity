@@ -33,6 +33,9 @@ random.seed()
 while True:
 
     n = random.randrange(1,numcities,1)
+    while cities.records[n]['scalerank']>3: #Picks a city only if it is big enough to be known
+        n= random.randrange(1,numcities,1)
+    
     print cities.records[n]['name']
     print cities.records[n]['longitude']
     print cities.records[n]['latitude']
@@ -44,6 +47,7 @@ while True:
     region = cities.records[n]['adm1name']
     inhab =  cities.records[n]['pop_max']
     zoom = 15
+    iteration = iteration +1
 
     #
     #GAME
@@ -92,5 +96,4 @@ while True:
             else:
                 api.update_status("Nobody got it right... The city is " + city + "! It is situated in "+ country + " and it has " + str(inhab) + " inhabitants!")
                 
-    iteration = iteration +1
     time.sleep(600)
