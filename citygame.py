@@ -33,7 +33,7 @@ random.seed()
 while True:
 
     n = random.randrange(1,numcities,1)
-    while cities.records[n]['scalerank']>3: #Picks a city only if it is big enough to be known
+    while cities.records[n]['natscale']>=110: #Picks a city only if it is big enough to be known
         n= random.randrange(1,numcities,1)
     
     print cities.records[n]['name']
@@ -42,7 +42,7 @@ while True:
     city = cities.records[n]['name']
     lon = cities.records[n]['longitude']
     lat = cities.records[n]['latitude']
-    rank = cities.records[n]['scalerank']
+    rank = cities.records[n]['natscale']
     country = cities.records[n]['sov0name']
     region = cities.records[n]['adm1name']
     inhab =  cities.records[n]['pop_max']
